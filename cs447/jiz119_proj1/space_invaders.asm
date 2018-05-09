@@ -26,10 +26,10 @@ bullets_on_screen:.byte 0:MAX_BULLETS
 next_bullet:      .word 0
 shots_player:	  .word 0
 lives_remaining:  .word 3
-enemies_move_counter: .word 0
-enemies_move_check:   .word 0
-enemies_alive: .byte 0:20
-last_frame:  .word 0
+enemies_move_track:   .word 0
+enemies_alive:        .byte 0:20   # 0 for alive; 1 for not  
+last_frame:  	      .word 0
+enemies_left:  	      .word 20
 
 player_image: 	  .byte
 	5   0   5   0   5
@@ -38,20 +38,21 @@ player_image: 	  .byte
  	5   5   5   5   5
  	1   0   2   0   1
 enemy_image: 	  .byte
- 1   0   1   0   1		
- 2   2   2   2   2	
- 2   7   0   7   2	
- 0   2   6   2   0	
- 0   0   2   0   0
+ 	1   0   1   0   1		
+	2   2   2   2   2	
+ 	2   7   0   7   2	
+ 	0   2   6   2   0	
+ 	0   0   2   0   0
  
-press_b: .asciiz "Press b"
+press_b: .asciiz "press b"
 to: .asciiz " to "
 start: .asciiz "start"
 
-game: 	          .word 0	
-pat_G	pat_A	pat_M	pat_E 
-over:             .word 0
-pat_O	pat_V	pat_E	pat_R pat_bang 
+game: 	.asciiz "game"	
+over:  .ascii "over"
+
+you: .ascii "you"
+win: .ascii "win!"
 
 .text
 
@@ -69,7 +70,8 @@ _main_loop:
 	# check for input,
 	# update everything,
 	# then draw everything.
-	
+
+	jal	check_collision
 	jal	check_player_input
 	jal	check_bullet_input
 	jal	move_bullets
@@ -84,6 +86,7 @@ _main_loop:
 		
 	b	_main_loop
 _game_over:
+	jal	display_update_and_clear
 	jal	game_over_screen
 	exit
 
@@ -113,7 +116,7 @@ leave	s0
 
 # .....and
 # here's where all the rest of your code goes :D
-
+################################################################################# check ppoints
 check_player_input:
 enter	
 	jal 	input_get_keys
@@ -175,23 +178,85 @@ enter	s0
 		sb t2, bullets_on_screen(v0)
 	_check_bullet_input_exit:	
 leave	s0
-##########################################################screen display
+
+
+check_collision:
+enter	s0, s1, s2, s3
+
+	lw 	t0, enemy_x
+	lw 	t1, enemy_y
+
+	li 	s0, 0 			
+	li 	s1, 0			
+	li 	s2, 0	  # bullets_on_screen counter		
+	li 	s3, 0	  # count for each enemies 		
+		_check_collision_loop:
+			lb 	t3, bullet_x(s2)
+			lb 	t4, bullet_y(s2)
+			
+			beq 	s2, MAX_BULLETS_ON_SCREEN, _check_next_enemy_alive
+			
+			lb 	t2, enemies_alive(s3)	# not alive, check for next
+			beq 	t2, 1, _check_next_enemy_alive
+
+			lb 	t5, bullets_on_screen(s2)  # not on screen, check for next
+	 		beq 	t5, 0, _check_next_active_bullet  
+		#checked for alive enemy and onscreen bullet
+		#then, check if bullet hit the enemy
+			blt 	t3, t0, _check_next_active_bullet # bullet_x < enemy least x coord
+			blt 	t4, t1, _check_next_active_bullet # bullet_y < enemy least y coord
+			
+			addi 	t5, t0, 5  
+			addi 	t6, t1, 5
+			
+			bgt 	t3, t5 _check_next_active_bullet # bullet_x > enemy largest x coord
+			bgt 	t4, t6 _check_next_active_bullet # bullet_y > enemy leargest y coord
+				
+			li 	t5, 0
+			sb 	t5, bullets_on_screen(s2)   # mark 0 for not on screen any more
+			li 	t5, 1
+			sb 	t5, enemies_alive(s3)	# mark 1 for not alive any more
+			j 	_check_next_active_bullet
+
+		_check_next_active_bullet:
+			inc 	s2
+			j 	_check_collision_loop
+
+		_check_next_enemy_alive:
+			inc 	s3
+			li 	s2, 0
+			blt 	s1, 3, _check_next_row
+			li 	s1, 0
+			blt 	s0, 4, _check_next_column
+			j 	_exit_check_collision
+
+			_check_next_row:
+			inc 	s1
+			addi 	t1, t1, 7 
+			j 	_check_collision_loop
+
+			_check_next_column:
+			inc 	s0
+			addi 	t0, t0, 10 
+			lw	t1, enemy_y 
+			j 	_check_collision_loop
+																																					
+	_exit_check_collision:
+leave 	s0, s1, s2, s3
+###########################################################################screen display
 
 start_screen: 
 enter
+	
 	li	a0, 10
 	li 	a1, 10
 	la 	a2, press_b
 	jal 	display_draw_text
 	
-	jal	display_update_and_clear
-	
 	li	a0, 18
 	li 	a1, 20
 	la 	a2, to
 	jal 	display_draw_text
-	
-	jal	display_update_and_clear
 	
 	li	a0, 18
 	li 	a1, 30
@@ -207,19 +272,37 @@ leave
 
 game_over_screen:
 enter
-	li 	a0 30
-	li 	a1 30
+	li 	a0 10
+	li 	a1 10
 	lw 	a2, game
 	jal 	display_draw_text
-	li 	a0 30
-	li 	a1 40
+	li 	a0 18
+	li 	a1 20
 	lw 	a2, over
 	jal 	display_draw_text
 	
-	b	game_over_screen
+	jal 	display_update_and_clear
+	li 	v0, sys_exit
+	syscall
 leave
 
-########################################################## draw and display
+you_win_screen:
+enter
+	li 	a0 10
+	li 	a1 10
+	lw 	a2, you
+	jal 	display_draw_text
+	li 	a0 18
+	li 	a1 20
+	lw 	a2, win
+	jal 	display_draw_text
+	
+	jal 	display_update_and_clear
+	li 	v0, sys_exit
+	syscall
+leave
+
+########################################################################### draw and display
 
 draw_player:
 enter
@@ -229,30 +312,37 @@ enter
 	jal	display_blit_5x5
 leave
 
-draw_enemies:
-enter	s0, s1
-lw 	t1, enemy_x
-li	t1, 2
-lw 	t2, enemy_y
-li 	t2, 2 		
-li 	s1, 0			
-	_draw_enemies_loop_1: 		
+draw_enemies: 
+enter	s0, s1, s2
+	lw 	t1, enemy_x
+	lw 	t2, enemy_y
+
+	li 	s0, 0 		
+	li 	s1, 0 
+	li 	s2, 0  #keep track of enemies left alive
+	
+	_draw_enemies_loop_1: 
 		move 	a0, t1
 		move 	a1, t2
-		lbu	s3, enemies_alive(s2)
-		la 	a2, enemy_image	
+		lb 	t3, enemies_alive(s2)
+		beq 	t3, 1, _next  #not alive
+		la 	a2, enemy_image #pointer to enemy image	
 		jal 	display_blit_5x5
-		addi 	t1, t1, 10
+	  _next:
+		addi 	t2, t2, 7 		
 		inc 	s0
-		blt	s0, 5, _draw_enemies_loop_1
-	 _draw_enemies_loop_2:
-	 	li	t1, 2	
-	 	li 	s0, 0	
-	 	addi 	t2, t2, 7		
-	 	inc 	s1					
-		blt	s1, 4, _draw_enemies_loop_1			
-leave	s0, s1
-
+		inc 	s2   
+		blt 	s0, 4, _draw_enemies_loop_1
+	  _draw_enemies_loop_2:
+		addi 	t1, t1, 10 		
+	 	inc 	s1						
+	 	beq 	s1, 5, _exit_draw_enemies
+	 	lw 	t2, enemy_y		
+	 	li 	s0, 0				
+		j 	_draw_enemies_loop_1			
+	 _exit_draw_enemies: 
+	 	beq	s2, 0, you_win_screen	
+leave	s0, s1, s2
 
 draw_bullets:
 enter   s0
@@ -285,16 +375,19 @@ leave
 
 display_player_lives:
 enter	s0
-	li	s0, MAX_LIVES
+	lw	s0, lives_remaining
 	_display_player_lives_loop:
 		lw	a0, x_coord_life
 		lw	a1, y_coord_life
+		
+		beq	s0, 0, game_over_screen 
+		
 		la	a2, player_image # pointer to the image
 		mul	t0, s0, 6
 		sub	a0, a0, t0
 		jal	display_blit_5x5
 		dec	s0
-		bgt	s0, 0, _display_player_lives_loop
+		bgt	s0, 0, _display_player_lives_loop	
 leave	s0
 
 erase_life:
@@ -333,7 +426,7 @@ enter	s0
 leave	s0
 
 
-##################################################################### move and update
+################################################################################# move and update
 
 move_bullets:
 enter	s0
@@ -357,37 +450,75 @@ enter	s0
 leave	s0
 
 move_enemies:
-enter
-	lw 	t2, frame_counter			
-	li 	t0, 10					
-	rem 	t3, t2, t0				
-	bne 	t3, 0, _move_enemies_exit
-	lw 	t1, enemies_move_check
-	
-	_move_enemies_loop:
-	beq 	t1, 0, _move_enemies_right
-	beq 	t1, 1, _move_enemies_left
-	lw 	t0, enemy_x
-	lw 	t0, enemy_y
-	_move_enemies_right:
-		lw 	t0, enemy_x					
-		addi 	t0, t0, 1					
-		bge 	t0, 17, _move_enemies_down			
-		sw 	t0, enemy_x	
-		j 	_move_enemies_exit	
-	_move_enemies_down:
-		xor 	t1, t1, 1
-		sw 	t1, enemies_move_check
-		lw 	t0, enemy_y
-		inc	t0
-		sw 	t0, enemy_y
-		bge 	t0, 10, _move_enemies_exit
-		j 	_move_enemies_exit
-	_move_enemies_left:
-		lw 	t0, enemy_x
-		dec	t0
-		sw 	t0, enemy_x
-		blt 	t0, 2, _move_enemies_down
-		j 	_move_enemies_exit
-	_move_enemies_exit:	
-leave
+enter	s0
+ 	lw 	t2, frame_counter
+ 	lw 	t3, last_frame
+ 	sub 	s0, t2, t3
+ 	bge 	s0, 10, _move_enemies_loop
+ 	j 	_exit_enemies_move
+ 	_move_enemies_loop:
+  		lw 	t4, frame_counter
+  		sw 	t4, last_frame
+  		lw 	t1, enemy_x
+  		lw 	t2, enemy_y
+  		lw 	s0, enemies_move_track
+  		
+  		beq 	s0, 0, _move_enemies_right
+  		beq 	s0, 1, _move_enemies_down
+ 		beq 	s0, 2, _move_enemies_left
+ 		beq 	s0, 3, _move_enemies_down
+ 		
+ 		_move_enemies_right:
+   			beq 	t1, 17, _inc_track
+  			inc	t1
+   			sw 	t1, enemy_x
+   			j 	_exit_enemies_move
+  
+   		_move_enemies_down:
+   			beq 	t2, 10, _last_move_check
+   			inc	t2
+   			sw 	t2, enemy_y
+   			inc	s0
+   			bge 	s0, 4, _reset_track
+   			sw 	s0, enemies_move_track
+   			j 	_exit_enemies_move
+   		
+   		_move_enemies_left:
+   			beq 	t1, 2, _inc_track
+   			dec	t1
+   			sw 	t1, enemy_x
+			j 	_exit_enemies_move
+		
+		_reset_track:	# set back to the first step --> left
+  			li 	s0, 0
+  			sw 	s0, enemies_move_track   
+ 			j 	_exit_enemies_move
+
+ 		_inc_track:
+  			inc	s0
+  			sw 	s0, enemies_move_track
+  			j 	_move_enemies_loop
+
+ 		_last_move_check:
+  			beq 	s0, 3, _last_move_right   
+   			j 	_last_move_left
+ 			beq 	s0, 1, _last_move_left
+ 		
+  		_last_move_right:
+    			li 	s0, 0	#right
+   			inc	t1
+   			sw 	t1, enemy_x
+   			sw 	s0, enemies_move_track
+   			j 	_exit_enemies_move
+  		
+		_last_move_left:
+    			li 	s0, 2	#left
+    			dec	t1
+    			sw 	t1, enemy_x
+    			sw 	s0, enemies_move_track
+   			j 	_exit_enemies_move
+ 	_exit_enemies_move:
+leave  s0
+
+
+
