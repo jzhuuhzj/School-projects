@@ -1,0 +1,477 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"first",
+				"formyfirsttweet"
+			],
+			[
+				"screen",
+				"screenName"
+			],
+			[
+				"heap",
+				"heapSize"
+			],
+			[
+				"build",
+				"buildHeap"
+			],
+			[
+				"ma",
+				"max_heap_maintenance"
+			],
+			[
+				"hep",
+				"heapSize"
+			],
+			[
+				"root",
+				"root_index"
+			],
+			[
+				"middle",
+				"middleChild"
+			],
+			[
+				"R",
+				"RatingNumberOutOfBoundException"
+			],
+			[
+				"blank",
+				"blankSize"
+			],
+			[
+				"exist",
+				"existBlank"
+			],
+			[
+				"sum_",
+				"sum_horizontal"
+			],
+			[
+				"sum",
+				"sum_horizontal"
+			],
+			[
+				"next",
+				"nextToken"
+			],
+			[
+				"operatro",
+				"operatorStack"
+			],
+			[
+				"expression",
+				"ExpressionError"
+			],
+			[
+				"err",
+				"ExpressionError"
+			],
+			[
+				"operato",
+				"operatorStack"
+			],
+			[
+				"opera",
+				"operatorStack"
+			],
+			[
+				"new",
+				"newEntry"
+			],
+			[
+				"numt",
+				"numTicketsTextField"
+			],
+			[
+				"movi",
+				"movieChoiceBox"
+			],
+			[
+				"TICKET_PRICE",
+				"TICKET_PRICE_3D"
+			],
+			[
+				"numti",
+				"numTickets"
+			],
+			[
+				"movie",
+				"movieSelection"
+			],
+			[
+				"total",
+				"totalCost"
+			],
+			[
+				"purch",
+				"purchaseButton"
+			],
+			[
+				"te",
+				"Text"
+			],
+			[
+				"player",
+				"playerSection"
+			],
+			[
+				"bu",
+				"Button"
+			],
+			[
+				"Image",
+				"ImageView"
+			],
+			[
+				"text",
+				"TextField"
+			],
+			[
+				"bott",
+				"bottomBox"
+			],
+			[
+				"scne",
+				"scenePane"
+			],
+			[
+				"top",
+				"topBox"
+			],
+			[
+				"langua",
+				"languageListView"
+			],
+			[
+				"language",
+				"languageLabel"
+			],
+			[
+				"left",
+				"leftBox"
+			],
+			[
+				"sE",
+				"Scene"
+			],
+			[
+				"textfile",
+				"textFieldButton"
+			],
+			[
+				"choiceBo",
+				"ChoiceBox"
+			],
+			[
+				"scene",
+				"scenePane"
+			],
+			[
+				"TOP",
+				"topBox"
+			],
+			[
+				"Scene",
+				"scenePane"
+			],
+			[
+				"Minor",
+				"MINOR_STRENGTH"
+			],
+			[
+				"d",
+				"deltaX"
+			],
+			[
+				"print",
+				"println"
+			],
+			[
+				"vis",
+				"visitAgain"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 119.0,
+		"last_filter": "install ",
+		"selected_items":
+		[
+			[
+				"install ",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 444.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Users/zhujx/Desktop/TwitterBot/node2/tweet.json",
+		"/Users/zhujx/Desktop/test.java",
+		"/Users/zhujx/Desktop/CS449/cs449/lab1/lab1.c",
+		"/Users/zhujx/Desktop/CS449/01 - Welcome.pptx",
+		"/Users/zhujx/Desktop/CS 0449/das",
+		"/Users/zhujx/Desktop/CS449/sftp-config.json",
+		"/Users/zhujx/Desktop/CS449/das",
+		"/Users/zhujx/Desktop/CS 0449/sftp-config.json",
+		"/Users/zhujx/Desktop/CS 0449/init_array.c",
+		"/Users/zhujx/Desktop/Pushover/node/pushovernotification.js",
+		"/Users/zhujx/desktop/pushover/node/package-lock.json",
+		"/Users/zhujx/Desktop/Pushover/node/package.json",
+		"/Users/zhujx/Desktop/node.js",
+		"/Users/zhujx/Desktop/pushovernotification.js",
+		"/Users/zhujx/Desktop/TwitterBot/node2/bot2.js",
+		"/Users/zhujx/Desktop/TwitterBot/node3_follow&tweetBack",
+		"/Users/zhujx/Desktop/TwitterBot/node4_reply",
+		"/Users/zhujx/Desktop/TwitterBot/node3_follower",
+		"/Users/zhujx/Desktop/TwitterBot/node2/node_modules/bot.js",
+		"/Users/zhujx/Desktop/hello.js",
+		"/Users/zhujx/Desktop/CS 1501/Dijkstra/DijkstraAlgorithm.java",
+		"/Users/zhujx/jingxia-zhu-cs1501/hw3/WeightedGraph.java",
+		"/Users/zhujx/jingxia-zhu-cs1501/hw3/Main.java",
+		"/Users/zhujx/jingxia-zhu-cs1501/hw3/Location.java",
+		"/Users/zhujx/jingxia-zhu-cs1501/hw3/Dijkstra.java",
+		"/Users/zhujx/jingxia-zhu-cs1501/hw3/BFS.java",
+		"/Users/zhujx/Desktop/WeightedGraph.java",
+		"/Users/zhujx/Desktop/Location.java",
+		"/Users/zhujx/Desktop/Main.java",
+		"/Users/zhujx/Desktop/BFS.java",
+		"/Users/zhujx/Desktop/Dijkstra.java",
+		"/Users/zhujx/jingxia-zhu-cs1501/hw1/Heap.java",
+		"/Users/zhujx/Desktop/cs445/a5/TreeInterface.java",
+		"/Users/zhujx/Desktop/cs445/a5/TreeIteratorInterface.java",
+		"/Users/zhujx/Desktop/cs445/a5/TernaryTreeInterface.java",
+		"/Users/zhujx/Desktop/cs445/a5/EmptyTreeException.java",
+		"/Users/zhujx/Desktop/cs445/a5/Test.java",
+		"/Users/zhujx/Desktop/cs445/a5/TernaryTree.java",
+		"/Users/zhujx/Desktop/cs445/a5/TernaryNode.java",
+		"/Users/zhujx/Desktop/cs445/StackAndQueuePackage/StackInterface.java",
+		"/Users/zhujx/Desktop/cs445/StackAndQueuePackage/QueueInterface.java",
+		"/Users/zhujx/Desktop/cs445/StackAndQueuePackage/LinkedStack.java",
+		"/Users/zhujx/Desktop/cs445/StackAndQueuePackage/LinkedQueue.java",
+		"/Users/zhujx/Desktop/cs445/StackAndQueuePackage/EmptyQueueException.java",
+		"/Users/zhujx/Desktop/cs445/a5/StackAndQueuePackage/StackInterface.java",
+		"/Users/zhujx/Desktop/cs445/a5/StackAndQueuePackage/QueueInterface.java",
+		"/Users/zhujx/Desktop/cs445/a5/StackAndQueuePackage/LinkedStack.java",
+		"/Users/zhujx/Desktop/cs445/a5/StackAndQueuePackage/LinkedQueue.java",
+		"/Users/zhujx/Desktop/cs445/a5/StackAndQueuePackage/EmptyQueueException.java",
+		"/Users/zhujx/Desktop/TernaryNode.java",
+		"/Users/zhujx/Desktop/TernaryTree.java",
+		"/Users/zhujx/Desktop/cs445/lab7/TreeIteratorInterface.java",
+		"/Users/zhujx/Desktop/cs445/lab7/TreeInterface.java",
+		"/Users/zhujx/Desktop/cs445/lab7/RebuildBinaryTree.java",
+		"/Users/zhujx/Desktop/cs445/lab7/EmptyTreeException.java",
+		"/Users/zhujx/Desktop/cs445/lab7/BinaryTreeInterface.java",
+		"/Users/zhujx/Desktop/cs445/lab7/BinaryTree.java",
+		"/Users/zhujx/Desktop/cs445/lab7/BinaryNode.java",
+		"/Users/zhujx/Desktop/cs445/lab6/SieveOfEratosthenes.java",
+		"/Users/zhujx/Desktop/cs445/lab6/ListInterface.java",
+		"/Users/zhujx/Desktop/cs445/lab6/ArrayList.java",
+		"/Users/zhujx/Desktop/cs445/a4/FullCapacityException.java",
+		"/Users/zhujx/Desktop/cs445/a4/StreamingVideo.java",
+		"/Users/zhujx/Desktop/cs445/a4/RatingOutOfBoundException.java",
+		"/Users/zhujx/Desktop/cs445/a4/RatingNumberOutOfBoundException.java",
+		"/Users/zhujx/Desktop/cs445/a1/Profile.java",
+		"/Users/zhujx/Desktop/cs445/a1/Set.java",
+		"/Users/zhujx/Desktop/cs445/a1/SocialClient1.java",
+		"/Users/zhujx/Desktop/cs445/a4/Video.java",
+		"/Users/zhujx/Desktop/cs445/a4/User.java",
+		"/Users/zhujx/Desktop/cs445/a4/TvSeries.java",
+		"/Users/zhujx/Desktop/cs445/a4/TvEpisode.java",
+		"/Users/zhujx/Desktop/cs445/a4/Film.java",
+		"/Users/zhujx/Desktop/squares/two.sq",
+		"/Users/zhujx/Desktop/squares/three2.sq",
+		"/Users/zhujx/Desktop/squares/three1.sq",
+		"/Users/zhujx/Desktop/squares/five2.sq",
+		"/Users/zhujx/Desktop/squares/five1.sq",
+		"/Users/zhujx/Desktop/cs445/a3/MagicSquare1.java",
+		"/Users/zhujx/Desktop/cs445/a3/Queens.java",
+		"/Users/zhujx/Desktop/MagicSquare.java",
+		"/Users/zhujx/Desktop/Queens.java",
+		"/Users/zhujx/Desktop/Lab5.java",
+		"/Users/zhujx/Desktop/NameDemo.java",
+		"/Users/zhujx/Desktop/Name.java",
+		"/Users/zhujx/Desktop/Checka1/cs445/a1/SocialClient.java",
+		"/Users/zhujx/Desktop/Checka1/cs445/a1/SetInterface.java",
+		"/Users/zhujx/Desktop/Checka1/cs445/a1/SetFullException.java",
+		"/Users/zhujx/Desktop/Checka1/cs445/a1/ProfileInterface.java",
+		"/Users/zhujx/Desktop/Checka1/cs445/a1/Set.java",
+		"/Users/zhujx/Desktop/Checka1/cs445/a1/Profile.java",
+		"/Users/zhujx/Desktop/Profile.java",
+		"/Users/zhujx/Desktop/Set.java",
+		"/Users/zhujx/Desktop/SocialClient.java",
+		"/Users/zhujx/Desktop/SetFullException.java",
+		"/Users/zhujx/Desktop/ProfileInterface.java",
+		"/Users/zhujx/Desktop/SetInterface.java",
+		"/Users/zhujx/Desktop/cs445/a2/StackInterface.java",
+		"/Users/zhujx/Desktop/cs445/a2/ExpressionError.java",
+		"/Users/zhujx/Desktop/cs445/a2/ArrayStack.java",
+		"/Users/zhujx/Desktop/cs445/a2/InfixExpressionEvaluator.java",
+		"/Users/zhujx/Desktop/cs445/a1/ProfileInterface.java",
+		"/Users/zhujx/Desktop/cs445/a1/SetFullException.java",
+		"/Users/zhujx/Desktop/cs445/a1/SetInterface.java",
+		"/Users/zhujx/Desktop/cs445/a1/SocialClient.java",
+		"/Users/zhujx/Desktop/Lab1Pt1.java",
+		"/Users/zhujx/Desktop/cs0401/Flyable.java",
+		"/Users/zhujx/Desktop/cs0401/Fish.java",
+		"/Users/zhujx/Desktop/cs0401/ExamScores.java",
+		"/Users/zhujx/Desktop/cs0401/Enemy.java",
+		"/Users/zhujx/Desktop/cs0401/EmployeeProgram.java",
+		"/Users/zhujx/Desktop/cs0401/Employee.java",
+		"/Users/zhujx/Desktop/CS401 - Final Exam Practice Problems"
+	],
+	"find":
+	{
+		"height": 39.0
+	},
+	"find_in_files":
+	{
+		"height": 93.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 23.0
+	},
+	"input":
+	{
+		"height": 35.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.sftp":
+	{
+		"height": 102.0
+	},
+	"pinned_build_system": "",
+	"project": "lab1.sublime-project",
+	"replace":
+	{
+		"height": 42.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 171.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
